@@ -36,6 +36,7 @@ var questions = [
   },
 ];
 
+console.log(questions);
 
 // WHEN I click the start button a timer starts 
 var startBtnEl = document.getElementById("start-btn");
@@ -61,22 +62,23 @@ function timer() {
 startBtnEl.addEventListener("click", timer);
 startBtnEl.addEventListener("click", renderQuiz);
 
-// THEN I am presented with a question
-// AND 4 possible answers to that question
-var quizQuestion = quizQuestion.concat(questions.title);  
-console.log(quizQuestion)
-var quizChoices;
-
-
-
-
 function renderQuiz() {
-  if (!quizQuestion && !quizChoices){
-    }
-
+  // if there are questions unanswered and/or the timer is not at zero
+  if (questions.length > 4 || timer > 0){
+    // loop through array of questions/choices 
+    for (i = 0; i < questions.length; i++)
+      questionsElement.innerHTML += questions;
+  }
 };
+  // for each question make some HTML 
+  // button input 
+  // if quiz is not complete or if time has not run out serve up another question until there are no more 
+// var quizQuestion;
+// var quizChoices;
 
 
+
+  
 
 
 
