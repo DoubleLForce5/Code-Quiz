@@ -65,9 +65,11 @@ startBtnEl.addEventListener("click", renderQuiz);
 function renderQuiz() {
   // if there are questions unanswered and/or the timer is not at zero
   if (questions.length > 4 || timer > 0){
+    console.log(questions.length);
     // loop through array of questions/choices 
     for (i = 0; i < questions.length; i++)
-      questionsElement.innerHTML += questions;
+      document.getElementById("questions-div").innerHTML += questionsElement.nodeValue
+      console.log();
   }
 };
   // for each question make some HTML 
