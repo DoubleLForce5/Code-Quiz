@@ -67,20 +67,30 @@ startBtnEl.addEventListener("click", renderQuiz);
 function renderQuiz() {
   // if there are questions unanswered and/or the timer is not at zero
   if (questions.length > 4 || timer > 0){
-    console.log(questions.length);
+    console.log(questions.length); 
     // loop through array of questions/choices 
-  } for (i = 0; i < questions.length; i++) {
-      // document.getElementById("questions-div").innerHTML += questionsElement.value
-      // console.log();
-      // document.getElementById("questions-div").innerHTML = "test"
-      document.getElementById("questions-div").innerHTML += questions[i].title
-      // console.log("questions[i].title: ", questions[0].title);
-      console.log("questions[i].title: ", questions[i].title);
-  } for ( j = 0; j < questions.length; j++) {
-    document.getElementById("choices-div").innerHTML += questions[j].choices
-    console.log("choices[j].choices: ", questions[j].choices);
+  // } for (i = 0; i < questions.length; i++) {
+  //     // document.getElementById("questions-div").innerHTML += questionsElement.value
+  //     // console.log();
+  //     // document.getElementById("questions-div").innerHTML = "test"
+  //     document.getElementById("questions-div").innerHTML += questions[i].title
+  //     // console.log("questions[i].title: ", questions[0].title);
+  //     console.log("questions[i].title: ", questions[i].title);
+  // } for ( j = 0; j < questions.length; j++) {
+  //     document.getElementById("choices-div").innerHTML += questions[j].choices
+  //     console.log("choices[j].choices: ", questions[j].choices);
   } 
+
 };
+
+function nextQuestion() { 
+  //increases currentQuestion by one.
+  currentQuestion ++;
+  //sets the document.getElementById("questions-div").innerHTML using questions[currentQuestion]
+  document.getElementById("questions-div").innerHTML += questions[currentQuestion].title
+  console.log(questions[currentQuestion]);
+  //adds / sets the buttons and choices using questions[currentQuestion]
+}
 
   // for each question make some HTML 
   // button input 
@@ -103,5 +113,4 @@ function renderQuiz() {
 // the game is over
 
 // WHEN the game is over
-// I can save my initials and my score
-
+// I can save my initials and my score 
