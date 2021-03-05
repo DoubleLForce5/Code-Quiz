@@ -6,7 +6,6 @@ var inputElement = document.querySelector(".score-input");
 var scoreContainerElement = document.querySelector(".score-input-container");
 var scoreInput = document.querySelector(".score-input");
 var questionCounter = 0;
-var currentQuestion = -1; 
 
 // quiz questions array 
 var questions = [
@@ -76,9 +75,6 @@ function renderQuiz() {
       document.getElementById("questions-div").innerHTML += questions[i].title
       // console.log("questions[i].title: ", questions[0].title);
       console.log("questions[i].title: ", questions[i].title);
-  } for ( j = 0; j < questions.length; j++) {
-    document.getElementById("choices-div").innerHTML += questions[j].choices
-    console.log("choices[j].choices: ", questions[j].choices);
   } 
 };
 
