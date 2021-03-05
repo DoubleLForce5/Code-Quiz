@@ -7,6 +7,7 @@ var scoreContainerElement = document.querySelector(".score-input-container");
 var scoreInput = document.querySelector(".score-input");
 var questionCounter = 0;
 var currentQuestion = -1; 
+var questionChoices = document.body.children[0].children[3].children[1];
 
 // quiz questions array 
 var questions = [
@@ -65,6 +66,7 @@ startBtnEl.addEventListener("click", timer);
 startBtnEl.addEventListener("click", renderQuiz);
 
 function renderQuiz() {
+  nextQuestion ();
   // if there are questions unanswered and/or the timer is not at zero
   if (questions.length > 4 || timer > 0){
     console.log(questions.length); 
@@ -82,21 +84,29 @@ function renderQuiz() {
   } 
 
 };
-
+// var options = question.choices.split(" ");
 function nextQuestion() { 
   //increases currentQuestion by one.
   currentQuestion ++;
   //sets the document.getElementById("questions-div").innerHTML using questions[currentQuestion]
-  document.getElementById("questions-div").innerHTML += questions[currentQuestion].title
-  console.log(questions[currentQuestion]);
+  document.getElementById("questions-div").innerHTML = questions[currentQuestion].title
+  console.log(questions[currentQuestion].title);
   //adds / sets the buttons and choices using questions[currentQuestion]
+  // create button
+}
+{ var quizChoices = questions[currentQuestion].choices
+  quizChoices.forEach( function (newItem) {
+  var choicesBtn = document.createElement("button");
+   // set text on button 
+  choicesBtn.innerText = quizChoices;
+  // append to page 
+  questionChoices.appendChild(choicesBtn);
+})
 }
 
   // for each question make some HTML 
   // button input 
   // if quiz is not complete or if time has not run out serve up another question until there are no more 
-// var quizQuestion;
-// var quizChoices;
 
 
 
