@@ -8,8 +8,6 @@ var scoreInput = document.querySelector(".score-input");
 var questionCounter = 0;
 var currentQuestion = -1; 
 var questionChoices = document.body.children[0].children[3].children[1];
-var currentChoice = -1;
-var score = 0; 
 
 // quiz questions array 
 var questions = [
@@ -41,18 +39,14 @@ var questions = [
   },
 ];
 
+console.log(questions);
+
 // WHEN I click the start button a timer starts 
 var startBtnEl = document.getElementById("start-btn");
 var timeEl = document.getElementById("time-left");
 
 var timeLeft = 31;
 var timerInterval;
-
-$(document).ready(function (){
-  $("#start-btn").click(function(){
-    $("button").hide();
-  })
-});
 
 function timer() {
   if (!timerInterval){
@@ -76,9 +70,21 @@ function renderQuiz() {
   // if there are questions unanswered and/or the timer is not at zero
   if (questions.length > 4 || timer > 0){
     console.log(questions.length); 
+    // loop through array of questions/choices 
+  // } for (i = 0; i < questions.length; i++) {
+  //     // document.getElementById("questions-div").innerHTML += questionsElement.value
+  //     // console.log();
+  //     // document.getElementById("questions-div").innerHTML = "test"
+  //     document.getElementById("questions-div").innerHTML += questions[i].title
+  //     // console.log("questions[i].title: ", questions[0].title);
+  //     console.log("questions[i].title: ", questions[i].title);
+  // } for ( j = 0; j < questions.length; j++) {
+  //     document.getElementById("choices-div").innerHTML += questions[j].choices
+  //     console.log("choices[j].choices: ", questions[j].choices);
   } 
-};
 
+};
+// var options = question.choices.split(" ");
 function nextQuestion() { 
   //increases currentQuestion by one.
   currentQuestion ++;
@@ -87,35 +93,31 @@ function nextQuestion() {
   console.log(questions[currentQuestion].title);
   //adds / sets the buttons and choices using questions[currentQuestion]
   // create button
+
   var quizChoices = questions[currentQuestion].choices
   quizChoices.forEach( function (newItem) {
   var choicesBtn = document.createElement("button");
    // set text on button 
   choicesBtn.innerText = newItem;
-  // one at a time
-  currentChoice ++;
   // append to page 
   questionChoices.appendChild(choicesBtn);
-}); if (quizChoices == questions[currentQuestion].answer){
-      right ();
-      alert("Right!!");
-    } else {
-        wrong ();
-        alert ("Wrong!")
-      };
+})
 }
 
-// if answer right user gets points and if they answer wrong they loose time 
+  // for each question make some HTML 
+  // button input 
+  // if quiz is not complete or if time has not run out serve up another question until there are no more 
 
-// right choice function
-function right () {
-  score += 5;
-}
 
-// // wrong choice function 
-function wrong () {
-  timeLeft -= 5;
-}
+
+  
+
+
+
+
+// WHEN I answer a question incorrectly
+// time is subtracted from the clock
+
 
 // WHEN all questions are answered or the timer reaches 0
 // the game is over
