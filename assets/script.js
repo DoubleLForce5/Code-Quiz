@@ -125,7 +125,7 @@ function checkAnswer(event) {
 
   if (this.getAttribute("data") == questions[currentQuestion].answer) {
     correctAnswers ++;
-    score += 5;
+    score ++;
     console.log ("Right");
   } else {
     timeLeft -= 5;
@@ -151,8 +151,21 @@ function endPage () {
 }
 
 // function showScore 
+  // capture score and write to display 
+// function showScore () {
 
-document.getElementById("score-input-container").textContent = score; 
+// }
+
+quizScore = document.querySelector("#score");
+quizScore.textContent = score; 
+
+function showScore (){
+  console.log(score);
+}
+
+
+
+// document.getElementById("score-input-container").textContent = score; 
 
 
 // I can save my initials and my score 
