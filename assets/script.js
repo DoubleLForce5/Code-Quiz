@@ -33,7 +33,6 @@ var questions = [
     choices: ["Computer Style Sheets","Creative Style Sheets", "Cascading Style Sheets", "Crayon Simple sheets"],
     answer: "cascading Style Sheets"
   },
-  // questions.choices[2] How to write answer 
   {
     title: "Where in an HTML document is the correct place to refer to an external style sheet?",
     choices: ["At the top of the bowl","In the head","In the body","At the bottom of the document"],
@@ -59,12 +58,13 @@ function timer() {
       timeEl.textContent = "Time: " + timeLeft;
       console.log(timer);
       // stop timer 
-      if(timeLeft === 0) {
+      if(timeLeft <= 0) {
         clearInterval(timerInterval);
       }
     }, 1000);
  }
 };
+
 // ---- EVENT LISTENER
 startBtnEl.addEventListener("click", timer);
 startBtnEl.addEventListener("click", renderQuiz);
@@ -88,8 +88,8 @@ function nextQuestion() {
   var quizChoices = questions[currentQuestion].choices
   quizChoices.forEach( function (newItem) {
   var choicesBtn = document.createElement("button");
-  choicesBtn.setAttribute({"id": "choicesBtn", "click":checkAnswer()});
-  // choicesBtn.setAttribute("click", checkAnswer());
+  choicesBtn.setAttribute("id", "choicesBtn");
+  choicesBtn.setAttribute("data", newItem);
   console.log(choicesBtn);
    // set text on button 
   choicesBtn.innerText = newItem;
@@ -97,44 +97,39 @@ function nextQuestion() {
   currentChoice ++;
   // append to page 
   questionChoices.appendChild(choicesBtn);
+  // event listener for checkAnswer function
+  choicesBtn.addEventListener("click", checkAnswer)
 }); 
-// if (choicesBtn == questions.choices[2]){
-//       right ();
-//       alert("Right!!");
-//     } else {
-//         wrong ();
-//         alert ("Wrong!")
-//       };
 }
 
+function checkAnswer(event) {
 
-// if answer right user gets points and if they answer wrong they loose time 
+  console.log(this.getAttribute('data'));
 
-// right choice function
-// function right () {
-//   score += 5;
+  console.log("checkAnswer");
+  console.log(questions[currentQuestion].answer)
 
-// }
-
-// // wrong choice function 
-// function wrong () {
-//   timeLeft -= 5;
-// }
-
-function checkAnswer () {
-  if (question.choices[1] == questions.choices[2]) {
+  if (this.getAttribute("data") == questions[currentQuestion].answer) {
     score += 5;
-    console.log (Right);
+    console.log ("Right");
   } else {
     timeLeft -= 5;
-    console.log(Wrong);
-  }
+    console.log("Wrong");
+  } 
+      document.getElementById("choices-div").innerHTML = '';
+      nextQuestion ();
 }
 
+// if no more questions or timer <= 0 end the quiz
 
 
-// WHEN all questions are answered or the timer reaches 0
-// the game is over
 
-// WHEN the game is over
+
+
+
+// WHEN the game is over i see my score an am presented with an input to place my name 
+document.getElementById("score-input-container").textContent = score; 
+
+
+
 // I can save my initials and my score 
