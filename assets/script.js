@@ -48,11 +48,9 @@ var timeEl = document.getElementById("time-left");
 var timeLeft = 31;
 var timerInterval;
 
-$(document).ready(function (){
-  $("#start-btn").click(function(){
-    $("button").hide();
-  })
-});
+document.getElementById("start-btn").onclick = function () {
+  document.getElementById("start-btn").style.display = "none";
+}
 
 function timer() {
   if (!timerInterval){
