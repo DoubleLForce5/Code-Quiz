@@ -121,7 +121,13 @@ function checkAnswer(event) {
 }
 
 // if no more questions or timer <= 0 end the quiz
-
+function endQuiz () {
+  if (timer < 0) {
+    console.log("End")
+  } if (nextQuestion > 4) {
+    console.log("End game now")
+  }
+};
 
 
 
