@@ -107,7 +107,7 @@ function checkAnswer(event) {
   console.log(this.getAttribute('data'));
 
   console.log("checkAnswer");
-  console.log(questions[currentQuestion].title)
+  console.log(questions[currentQuestion].answer)
 
   if (this.getAttribute("data") == questions[currentQuestion].answer) {
     score += 5;
@@ -131,7 +131,8 @@ function checkAnswer(event) {
 //     console.log("End game now")
 //   }
 // };
-
+console.log(questions.title)
+console.log(currentQuestion.value > questions.length);
 
 function endQuiz () {
   // if (timeLeft >= 0 || questions > 4);
