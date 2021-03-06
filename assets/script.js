@@ -88,26 +88,39 @@ function nextQuestion() {
   var quizChoices = questions[currentQuestion].choices
   quizChoices.forEach( function (newItem) {
   var choicesBtn = document.createElement("button");
+  choicesBtn.setAttribute("id", "choicesBtn", onclick="checkAnswer()");
+  console.log(choicesBtn);
    // set text on button 
   choicesBtn.innerText = newItem;
   // one at a time
   currentChoice ++;
   // append to page 
   questionChoices.appendChild(choicesBtn);
-}); if (quizChoices == questions[currentQuestion].answer){
-      right ();
-      alert("Right!!");
-    } else {
-        wrong ();
-        alert ("Wrong!")
-      };
+}); 
+// if (choicesBtn == questions.choices[2]){
+//       right ();
+//       alert("Right!!");
+//     } else {
+//         wrong ();
+//         alert ("Wrong!")
+//       };
 }
 
 // if answer right user gets points and if they answer wrong they loose time 
+function checkAnswer () {
+  if (choicesBtn == questions.choices[2]) {
+    right ()
+    console.log (Right);
+  } else {
+    wrong ()
+    console.log(Wrong);
+  }
+}
 
 // right choice function
 function right () {
   score += 5;
+
 }
 
 // // wrong choice function 
