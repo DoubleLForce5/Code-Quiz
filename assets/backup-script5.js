@@ -77,7 +77,7 @@ startBtnEl.addEventListener("click", function() {
 function renderQuiz() {
   nextQuestion ();
   // if there are questions unanswered and/or the timer is not at zero
-  if (questions.length > 4 || timer > 0){
+  if (questions.length > 4 || timeLeft > 0){
     console.log(questions.length); 
   } 
 };
@@ -136,11 +136,31 @@ function checkAnswer(event) {
       // endQuiz ();
 }
 
+  // endQuiz ();
+  // endPage ();
+
+// if no more questions or timer <= 0 end the quiz
+// function endQuiz () {
+//   if (timeLeft >= 0) {
+//     console.log("End")
+//   } if (questions.length > 4) {
+//     console.log("End game now")
+//   }
+// };
+
+
 function endQuiz () {
   // if (timeLeft === 0){}
     console.log("end game")
     clearInterval (timerInterval)
     endPage ();
+  
+  // if (timeLeft <= 0) {
+  //   console.log("End")
+  // } else (currentQuestion < questions.length) 
+  //   { 
+  //     console.log("End game now")
+  //   }
 };
 
 
@@ -150,9 +170,12 @@ function endPage () {
   document.getElementById("questions-div").innerHTML = '';
 }
 
+
+
 // function showScore 
 
-document.getElementById("score-input-container").textContent = score; 
+// document.getElementById("score-input-container").textContent = score; 
+
 
 
 // I can save my initials and my score 
