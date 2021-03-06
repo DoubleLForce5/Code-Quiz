@@ -122,18 +122,19 @@ function checkAnswer(event) {
 
 // if no more questions or timer <= 0 end the quiz
 function endQuiz () {
-  if (timer < 0) {
+  if (timer = 0) {
     console.log("End")
-  } if (nextQuestion > 4) {
+  } if (currentQuestion.length > 4) {
     console.log("End game now")
   }
 };
 
 
 
+// WHEN the game is over i see my score and am presented with an input to place my name 
 
+// function showScore 
 
-// WHEN the game is over i see my score an am presented with an input to place my name 
 document.getElementById("score-input-container").textContent = score; 
 
 
