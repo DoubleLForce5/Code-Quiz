@@ -88,7 +88,8 @@ function nextQuestion() {
   var quizChoices = questions[currentQuestion].choices
   quizChoices.forEach( function (newItem) {
   var choicesBtn = document.createElement("button");
-  choicesBtn.setAttribute("id", "choicesBtn", onclick="checkAnswer()");
+  choicesBtn.setAttribute({"id": "choicesBtn", "click":checkAnswer()});
+  // choicesBtn.setAttribute("click", checkAnswer());
   console.log(choicesBtn);
    // set text on button 
   choicesBtn.innerText = newItem;
@@ -106,27 +107,31 @@ function nextQuestion() {
 //       };
 }
 
+
 // if answer right user gets points and if they answer wrong they loose time 
+
+// right choice function
+// function right () {
+//   score += 5;
+
+// }
+
+// // wrong choice function 
+// function wrong () {
+//   timeLeft -= 5;
+// }
+
 function checkAnswer () {
-  if (choicesBtn == questions.choices[2]) {
-    right ()
+  if (question.choices[1] == questions.choices[2]) {
+    score += 5;
     console.log (Right);
   } else {
-    wrong ()
+    timeLeft -= 5;
     console.log(Wrong);
   }
 }
 
-// right choice function
-function right () {
-  score += 5;
 
-}
-
-// // wrong choice function 
-function wrong () {
-  timeLeft -= 5;
-}
 
 // WHEN all questions are answered or the timer reaches 0
 // the game is over
