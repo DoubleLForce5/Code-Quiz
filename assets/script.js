@@ -118,8 +118,10 @@ function checkAnswer(event) {
   } 
       document.getElementById("choices-div").innerHTML = '';
       nextQuestion ();
-      endQuiz ();
 }
+
+  // endQuiz ();
+  // endPage ();
 
 // if no more questions or timer <= 0 end the quiz
 // function endQuiz () {
@@ -130,15 +132,19 @@ function checkAnswer(event) {
 //   }
 // };
 
+console.log(question.title[4]);
+
 function endQuiz () {
-  if (timeLeft >= 0 || questions.length > 4);
-  console.log("end game")
-  // if (timeLeft >= 0) {
-  //   console.log("End")
-  // } if (questions.length > 4) {
-  //     console.log("End game now")
-  //   }
+  // if (timeLeft >= 0 || questions > 4);
+  // console.log("end game")
+  if (timeLeft >= 0) {
+    console.log("End")
+  } if (questions.title.length > 4) {
+      console.log("End game now")
+    }
 };
+
+endQuiz ();
 
 
 // WHEN the game is over i see my score and am presented with an input to place my name 
@@ -147,6 +153,7 @@ function endPage () {
   endQuiz (); 
   document.getElementById("questions-div").innerHTML = '';
 }
+
 
 
 // function showScore 
