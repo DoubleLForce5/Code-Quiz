@@ -118,20 +118,36 @@ function checkAnswer(event) {
   } 
       document.getElementById("choices-div").innerHTML = '';
       nextQuestion ();
+      endQuiz ();
 }
 
 // if no more questions or timer <= 0 end the quiz
+// function endQuiz () {
+//   if (timeLeft >= 0) {
+//     console.log("End")
+//   } if (questions.length > 4) {
+//     console.log("End game now")
+//   }
+// };
+
 function endQuiz () {
-  if (timer = 0) {
-    console.log("End")
-  } if (currentQuestion.length > 4) {
-    console.log("End game now")
-  }
+  if (timeLeft >= 0 || questions.length > 4);
+  console.log("end game")
+  // if (timeLeft >= 0) {
+  //   console.log("End")
+  // } if (questions.length > 4) {
+  //     console.log("End game now")
+  //   }
 };
 
 
-
 // WHEN the game is over i see my score and am presented with an input to place my name 
+
+function endPage () {
+  endQuiz (); 
+  document.getElementById("questions-div").innerHTML = '';
+}
+
 
 // function showScore 
 
