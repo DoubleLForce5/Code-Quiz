@@ -10,7 +10,7 @@ var currentQuestion = -1;
 var questionChoices = document.body.children[0].children[3].children[1];
 var currentChoice = -1;
 // var score = 0; 
-var score = localStorage.getItem('hi');
+var score = localStorage.getItem('score');
 var correctAnswers = 0;
 var addScoreBtn = document.querySelector("add-score");
 var userInitials = document.querySelector("user-initials");
@@ -174,10 +174,10 @@ function renderLastScore() {
   userInitials = localStorage.getItem("score");
 }
 
+
 addScoreBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-
+event.preventDefault();
+  userScore = score;
   var userScore = document.querySelector("score-input").value;
-
   showScore ();
 });
