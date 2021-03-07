@@ -169,6 +169,7 @@ function showScore (){
 
 // I can save my initials and my score 
 // userInitialsEl.textContent = userInitials;
-
-var userInitials = localStorage.getItem("initials-input");
-var userScore = localStorage.getItem("score");
+function renderLastRegistered() {
+  var userInitials = localStorage.getItem("initials-input");
+  var userScore = localStorage.getItem("score");
+}
