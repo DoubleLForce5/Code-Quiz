@@ -9,11 +9,11 @@ var questionCounter = 0;
 var currentQuestion = -1; 
 var questionChoices = document.body.children[0].children[3].children[1];
 var currentChoice = -1;
-// var score = 0; 
-var score = localStorage.getItem('score');
+var score = 0; 
+// var score = localStorage.getItem('score');
 var correctAnswers = 0;
-var addScoreBtn = document.querySelector("add-score");
-var userInitials = document.querySelector("user-initials");
+// var addScoreBtn = document.querySelector("#add-score");
+var userInputEl = document.querySelector("#initials-input");
 
 // quiz questions array 
 var questions = [
@@ -137,7 +137,6 @@ function checkAnswer(event) {
       document.getElementById("choices-div").innerHTML = '';
       nextQuestion ();
       // endQuiz ();
-      console.log(score);
 }
 
 function endQuiz () {
@@ -164,20 +163,12 @@ function endPage () {
 function showScore (){
   quizScore = document.querySelector("#score");
   quizScore.textContent = score; 
-  localStorage.setItem("score", score);
 }
+
+
 
 // I can save my initials and my score 
-function renderLastScore() {
-  // TODO: Retrieve the last email and password and render it to the page
-  userInitials.textContent = "Player's initials";
-  userInitials = localStorage.getItem("score");
-}
+// userInitialsEl.textContent = userInitials;
 
-
-addScoreBtn.addEventListener("click", function(event) {
-event.preventDefault();
-  userScore = score;
-  var userScore = document.querySelector("score-input").value;
-  showScore ();
-});
+var userInitials = localStorage.getItem("initials-input");
+var userScore = localStorage.getItem("score");
