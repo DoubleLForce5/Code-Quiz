@@ -11,5 +11,5 @@ If the user answers a questions wrong time is subtracted from the clock and when
 ![Enter Initials](assets/4.png)
 
 ## Link to deployed application:
-
+https://doublelforce5.github.io/Code-Quiz/
 
